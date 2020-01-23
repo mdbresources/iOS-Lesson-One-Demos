@@ -27,8 +27,9 @@ class MainVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! ResultsVC
-        destinationVC.headsSelected = headsSelected
+        if let destinationVC = segue.destination as? ResultsVC, segue.identifier == "toResultsVC" {
+            destinationVC.headsSelected = headsSelected
+        }
     }
 }
 
